@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
     id 'java'
+//    id 'jacoco'
 }
 
 group = 'com.hyun'
@@ -30,6 +31,18 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+//apply from: 'test.gradle'
+
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
+//jacoco {
+//    // JaCoCo 버전
+//    toolVersion = '0.8.5'
+//
+////  테스트결과 리포트를 저장할 경로 변경
+////  default는 "$/jacoco"
+////  reportsDir = file("$buildDir/customJacocoReportDir")
+//}

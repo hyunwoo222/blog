@@ -14,10 +14,18 @@ public class User {
     private String bio;
     private String image;
 
+
     protected User(){
     }
 
     public User(String username,String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(Long id,String username,String email, String password) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -41,5 +49,13 @@ public class User {
 
     public static User createNewUser(String username,String email, String password) {
         return new User(username,email,password);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
