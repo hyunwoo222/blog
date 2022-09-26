@@ -18,17 +18,20 @@ public class User {
     protected User(){
     }
 
-    public User(String username,String email, String password) {
-        this.username = username;
-        this.email = email;
+    public User(String email,String username, String password) {
+        this(email,username,null,null);
         this.password = password;
     }
 
-    public User(Long id,String username,String email, String password) {
-        this.id = id;
-        this.username = username;
+    public User(String email,String username,String bio, String image) {
         this.email = email;
-        this.password = password;
+        this.username = username;
+        this.bio = bio;
+        this.image = image;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getEmail() {
@@ -47,15 +50,7 @@ public class User {
         return image;
     }
 
-    public static User createNewUser(String username,String email, String password) {
+    public static User SignUp(String username, String email, String password) {
         return new User(username,email,password);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

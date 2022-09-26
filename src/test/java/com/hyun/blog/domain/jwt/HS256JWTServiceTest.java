@@ -13,7 +13,7 @@ class HS256JWTServiceTest {
     @Test
     public void generateTokenFromUserTest() {
         HS256JWTService hs256JWTService = new HS256JWTService(secret,durationSeconds);
-        User user = new User(1L,"hello","hello@world","world");
+        User user = new User("hello@world","hello","boi","world");
         String token = hs256JWTService.generateTokenFromUser(user);
         System.out.println(token);
     }

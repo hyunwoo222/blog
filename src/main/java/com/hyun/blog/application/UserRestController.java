@@ -1,6 +1,5 @@
 package com.hyun.blog.application;
 
-import com.hyun.blog.domain.UserRepository;
 import com.hyun.blog.domain.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,14 +19,14 @@ public class UserRestController {
         this.userService = userService;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<UserResponseDTO> login(@RequestBody UserLoginRequestDTO loginRequestDTO) {
-        return of(userService.login(loginRequestDTO.getEmail(),loginRequestDTO.getPassword()).map(UserResponseDTO::fromUser));
-    }
-
     @PostMapping
     public UserResponseDTO postUser(@RequestBody UserPostRequestDTO postRequestDTO){
-        return UserResponseDTO.fromUser(
-                userService.createUser(postRequestDTO.toUser()));
+        return UserResponseDTO.fromAuthorizedUser(
+                userService.signUp(postRequestDTO.toUser()));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserResponseDTO> login(@RequestBody UserLoginRequestDTO loginRequestDTO) {
+        return of(userService.login(loginRequestDTO.getEmail(),loginRequestDTO.getPassword()).map(UserResponseDTO::fromAuthorizedUser));
     }
 }
