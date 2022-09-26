@@ -1,8 +1,16 @@
 # Blog简单内容发布平台
 
-RealWorld Project Study   
+RealWorld Project Study 
 
-## 开发日志
+
+## TODO
+
+
+## Doing
+
+
+## 开发日志Done
+
 1. 创建SpringBoot项目
 2. 分析Blog需求，整理后端所提供的接口
     [/sepc/README.md] 整理需要的结构与接口参数
@@ -64,6 +72,8 @@ header = '{"alg:"HS256","typ":"JWT"}'
 
 6. 登陆注册后返回 带token信息返回,
    编写Service 单元测试
+   
+
 
 
 
